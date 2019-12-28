@@ -12,7 +12,7 @@ This allows two web servers to serve one domain, via fail-over.  Incoming reques
 3. Edit the first distribution to fail-over to your second distribution.
     - Add a second Origin, pointed to your alskdjfksdksdj.cloudfront.net (second distribution address).  Give it an origin ID of "always-redirect".  This can be set to HTTP only, as it's internal to AWS.
     - Create a new Origin Group, and add both your Origins.  "always-redirect" should be the second item.
-    - Select which HTTP errors you want to fail-over redirect.
+    - Select which HTTP errors you want to fail-over redirect.  I'm using 403/404 currently.  CloudFront currently also lets you specify 500/502/503/504.
     - Give it an Origin Group ID of "redirect-on-error".
 
 That's it!  Now whenever a request to the original server fails, the request will fail-over to your redirection lambda.  CloudFront will also cache redirection responses iaw the cache behavior policy set in the second distribution.
