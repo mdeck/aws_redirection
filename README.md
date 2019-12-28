@@ -1,6 +1,7 @@
 # aws_redirection
 
 This allows two web servers to serve one domain, via fail-over.  Incoming requests that normally would respond with a 403/404 on the first server are redirected to the second server.
+See [Use Origin Failover with Lambda@Edge Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.lambda).
 
 1. Start with your first server setup as a first distribution on AWS CloudFront.
 
